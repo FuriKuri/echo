@@ -20,7 +20,7 @@ func fallback(w http.ResponseWriter, r *http.Request) {
 
 func respHostname(w http.ResponseWriter, r *http.Request) {
 	hostname, _ := os.Hostname()
-	fmt.Fprintf(w, "My hostname is: %s", hostname)
+	fmt.Fprint(w, hostname)
 }
 
 func respEnv(w http.ResponseWriter, r *http.Request) {
