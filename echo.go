@@ -57,6 +57,8 @@ func main() {
 	logger.Print("Start server!")
 	http.HandleFunc("/hostname", respHostname)
 	http.HandleFunc("/env", respEnv)
+	http.HandleFunc("/pong", pong)
+	http.HandleFunc("/ping", ping)
 	http.HandleFunc("/", fallback)
 	http.ListenAndServe(":8080", nil)
 }
