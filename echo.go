@@ -29,13 +29,13 @@ func respEnv(w http.ResponseWriter, r *http.Request) {
 
 func ping(w http.ResponseWriter, r *http.Request) {
 	hostname, _ := os.Hostname()
-	pingHostname := doRequest("ping")
+	pingHostname := doRequest("http://ping/hostname")
 	fmt.Fprintf(w, "My hostname is: %s\nPing's hostname is: %s", hostname, pingHostname)
 }
 
 func pong(w http.ResponseWriter, r *http.Request) {
 	hostname, _ := os.Hostname()
-	pongHostname := doRequest("pong")
+	pongHostname := doRequest("http://pong/hostname")
 	fmt.Fprintf(w, "My hostname is: %s\nPong's hostname is: %s", hostname, pongHostname)
 }
 
