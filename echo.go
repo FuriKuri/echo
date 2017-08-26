@@ -33,6 +33,12 @@ func ping(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "My hostname is: %s\nPing's hostname is: %s", hostname, pingHostname)
 }
 
+func pong(w http.ResponseWriter, r *http.Request) {
+	hostname, _ := os.Hostname()
+	pongHostname := doRequest("pong")
+	fmt.Fprintf(w, "My hostname is: %s\nPong's hostname is: %s", hostname, pongHostname)
+}
+
 func doRequest(endpoint string) string {
 	resp, err := http.Get(endpoint)
 
