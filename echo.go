@@ -10,6 +10,10 @@ import (
 
 var logger *log.Logger
 
+func health(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, "UP")
+}
+
 func fallback(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
 }
@@ -55,6 +59,7 @@ func main() {
 	logger = log.New(os.Stdout, "", log.Ldate|log.Ltime|log.Lshortfile)
 
 	logger.Print("Start server!")
+	http.HandleFunc("/health", health)
 	http.HandleFunc("/hostname", respHostname)
 	http.HandleFunc("/env", respEnv)
 	http.HandleFunc("/pong", pong)
