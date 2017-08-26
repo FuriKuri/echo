@@ -13,3 +13,8 @@ Enable ingress
 ```
 $ minikube addons enable ingress
 ```
+
+Enable heapster
+```
+$ minikube addons enable heapster
+```

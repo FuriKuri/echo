@@ -15,7 +15,7 @@ func health(w http.ResponseWriter, r *http.Request) {
 }
 
 func fallback(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
+	fmt.Fprint(w, "Hello World")
 }
 
 func respHostname(w http.ResponseWriter, r *http.Request) {
